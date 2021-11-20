@@ -1,4 +1,4 @@
-name: Deploy
+name: Test and Deploy
 
 on:
   push:
@@ -6,13 +6,17 @@ on:
       - main
 
 jobs:
-  build:
+  test:
+    call-workflow:
+      uses: ShumilinPavel/deploy-ghactions/.github/workflows/test.yml
+
+  deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Deploy
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "flex-grid-site" #Must be unique in Heroku
+          heroku_app_name: "flex-grid-site"
           heroku_email: "pavelshum10@gmail.com"
