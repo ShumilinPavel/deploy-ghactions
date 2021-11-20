@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     call-workflow:
-      uses: ShumilinPavel/deploy-ghactions/.github/workflows/test.yml
+      uses: ShumilinPavel/deploy-ghactions/.github/workflows/test.yml@main
 
   deploy:
     needs: test
