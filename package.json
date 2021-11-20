@@ -1,15 +1,18 @@
 {
   "private": true,
   "scripts": {
-    "start": "browser-sync start --server src --no-notify --no-ui --cwd src --files index.html,styles/**/*",
+    "start-flex": "browser-sync start --server src/flexbox --no-notify --no-ui --cwd src/flexbox --files index.html,styles/**/*",
+    "start-grid": "browser-sync start --server src --no-notify --no-ui --cwd src/css-grid --files index.html,styles/**/*",
     "test": "editorconfig-checker",
     "html": "html-minifier --remove-comments --collapse-whitespace --input-dir src --output-dir dist --file-ext html",
-    "styles": "postcss src/styles/index.css --use postcss-import --use postcss-csso --no-map --output dist/styles/index.css",
-    "build": "npm run html && npm run styles",
-    "serve": "serve"
+    "styles": "postcss src/**/styles/index.css --use postcss-import --use postcss-csso --no-map --base src --dir dist",
+    "build": "npm run html && npm run styles && npm run images",
+    "serve": "serve",
+    "images": "npx copyfiles -u 1 ./src/images/** ./dist"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
+    "copyfiles": "^2.4.1",
     "editorconfig-checker": "^3.1.0",
     "html-minifier": "^4.0.0",
     "postcss-cli": "^7.1.1",

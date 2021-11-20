@@ -1,0 +1,143 @@
+.cards-wrapper {
+    background: #F5F6F7;
+    padding: 62px 0px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card-width));
+    grid-template-rows: auto;
+    grid-column-gap: 16px;
+    min-width: var(--card-width);
+}
+
+.card {
+    width: var(--card-width);
+    height: 576px;
+    background: #FFFFFF;
+    border-radius: var(--radius);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.card_cup {
+    position: relative;
+    border-radius: var(--radius);
+}
+
+.card_image {
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    width: 100%;
+}
+
+.card_category {
+    position: absolute;
+    top: 32px;
+    left: 24px;
+}
+
+.card_delete-from-saved {
+    position: absolute;
+    top: 32px;
+    right: 90px;
+}
+
+.card_delete {
+    position: absolute;
+    top: 32px;
+    right: 15px;
+}
+
+.card_cloud {
+    padding: 6px 12px;
+    background: white;
+    border-radius: 25px;
+}
+
+.card_content {
+    padding: 0px 24px;
+    display: grid;
+    flex-grow: 1;
+}
+
+.card_date {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #B6BCBF;
+}
+
+.card_title {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+    color: #1A1B22;
+}
+
+.card_description {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1A1B22;
+}
+
+.card_tag {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #B6BCBF;
+}
+
+@media (max-width: 1023px) {
+    .cards {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .cards-wrapper {
+        padding: 24px 0px;
+    }
+
+    :root {
+        --card-width: 288px;
+        --card-cloud-shift: 16px;
+    }
+
+    .card_category {
+        top: var(--card-cloud-shift);
+        left: var(--card-cloud-shift);
+    }
+
+    .card_delete {
+        top: var(--card-cloud-shift);
+        right: var(--card-cloud-shift);
+    }
+
+    .card {
+        height: 535px;
+    }
+
+    .card_delete-from-saved {
+        display: none;
+    }
+}
+
+@media (max-width: 466px) {
+    .cards {
+        justify-content: initial;
+    }
+}

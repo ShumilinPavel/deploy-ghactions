@@ -1,0 +1,7 @@
+@import 'variables.css';
+
+@import 'blocks/page.css';
+@import 'blocks/header.css';
+@import 'blocks/welcome-block.css';
+@import 'blocks/card.css';
+@import 'blocks/footer.css';
