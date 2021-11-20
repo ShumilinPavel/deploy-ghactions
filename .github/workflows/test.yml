@@ -18,6 +18,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install JRE for node-w3c-validator
-        run: sudo apt install default-jre 
+        run: sudo apt install default-jre
       - run: npm ci
       - run: npm test
